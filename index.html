@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonia Permigiani</title>
+<meta name="description" content="Página académica de Sonia Permigiani: Jefa de Trabajos Prácticos en la UNRC y doctoranda en Ciencias de la Computación (FaMAF, UNC).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --text:#494e52; --muted:#7a8288; --link:#52adc8; --link-hover:#3a8aa3;
+    --border:#f2f3f3; --border-strong:#dcdfe0; --bg:#fff; --bg-soft:#f7f8f8;
+  }
+  *{box-sizing:border-box}
+  html{font-size:16px;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Source Sans 3","Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.5}
+  a{color:var(--link);text-decoration:none}
+  a:hover{color:var(--link-hover);text-decoration:underline}
+
+  /* Masthead */
+  .masthead{position:relative;border-bottom:1px solid var(--border-strong);background:var(--bg);z-index:10}
+  .masthead__inner{max-width:1280px;margin:0 auto;padding:0 1.25rem;display:flex;align-items:center;min-height:3rem}
+  .masthead__title{font-weight:700;font-size:1.05rem;color:var(--text);margin-right:auto;padding:.9rem 0}
+  .masthead__title:hover{text-decoration:none;color:var(--link)}
+  .masthead nav{display:flex;gap:.25rem;flex-wrap:wrap}
+  .masthead nav a{color:var(--text);padding:.9rem .8rem;font-weight:600;font-size:.95rem;border-bottom:3px solid transparent}
+  .masthead nav a:hover{text-decoration:none;color:var(--link)}
+  .masthead nav a.active{border-bottom-color:var(--link)}
+
+  /* Layout */
+  .layout{max-width:1280px;margin:0 auto;padding:2rem 1.25rem 3rem;display:grid;grid-template-columns:230px minmax(0,1fr);gap:3rem}
+  .sidebar{text-align:center}
+  .avatar{width:100%;max-width:200px;aspect-ratio:1;border-radius:50%;margin:0 auto 1rem;overflow:hidden;background:#e6eef1;display:flex;align-items:center;justify-content:center}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .avatar span{font-size:3.2rem;font-weight:700;color:var(--link)}
+  .sidebar h3{margin:.2rem 0 .1rem;font-size:1.35rem;line-height:1.2}
+  .sidebar .bio{margin:.2rem 0 .9rem;color:var(--muted);font-size:.95rem}
+  .btn-follow{font:inherit;font-weight:600;font-size:.85rem;background:var(--link);color:#fff;border:0;border-radius:4px;padding:.45rem 1rem;cursor:pointer}
+  .btn-follow:hover{background:var(--link-hover)}
+  .author-links{list-style:none;margin:1rem 0 0;padding:0;text-align:left;font-size:.92rem}
+  .author-links li{padding:.3rem 0;border-top:1px solid var(--border)}
+  .author-links li:first-child{border-top:0}
+  .follow-list{display:none}
+  .follow-list.open{display:block}
+  .meta{display:block;color:var(--muted)}
+
+  /* Content */
+  main h1{font-size:1.75rem;margin:0 0 1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border-strong)}
+  main h2{font-size:1.3rem;margin:2rem 0 .6rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}
+  main h3{font-size:1.1rem;margin:1.5rem 0 .4rem}
+  main p{margin:0 0 1rem}
+  main ul{padding-left:1.3rem;margin:0 0 1rem}
+  main li{margin-bottom:.4rem}
+  .page{display:none}
+  .page.active{display:block}
+  .logos{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:.9rem;color:var(--muted)}
+  .logos a{color:var(--muted);font-weight:600}
+  .logos a:hover{color:var(--link)}
+
+  /* Publications */
+  .pub{margin:0 0 1.1rem;padding-bottom:1.1rem;border-bottom:1px solid var(--border)}
+  .pub:last-child{border-bottom:0}
+  .pub .title{font-weight:600;color:var(--text);display:block}
+  .pub .authors{display:block;font-size:.95rem}
+  .pub .venue{display:block;font-size:.92rem;color:var(--muted);font-style:italic}
+  .pub .extra{display:block;font-size:.85rem;color:var(--muted)}
+  .year{font-size:1.2rem;font-weight:700;margin:1.8rem 0 .6rem;color:var(--link)}
+  .year:first-of-type{margin-top:.5rem}
+  .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;background:var(--bg-soft);border:1px solid var(--border-strong);border-radius:3px;padding:0 .4rem;margin-right:.4rem;color:var(--muted);vertical-align:1px}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border-strong);background:var(--bg-soft);color:var(--muted);font-size:.85rem;text-align:center;padding:1.4rem 1rem}
+
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;gap:1.5rem;padding-top:1.5rem}
+    .sidebar{border-bottom:1px solid var(--border-strong);padding-bottom:1.5rem}
+    .avatar{max-width:140px}
+    .author-links{max-width:320px;margin-left:auto;margin-right:auto}
+    .masthead__inner{flex-wrap:wrap}
+    .masthead__title{padding:.7rem 0}
+    .masthead nav a{padding:.6rem .6rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="masthead__title" href="#inicio">Sonia Permigiani</a>
+    <nav id="nav">
+      <a href="#inicio" data-page="inicio">Sobre mí</a>
+      <a href="#publicaciones" data-page="publicaciones">Publicaciones</a>
+      <a href="#docencia" data-page="docencia">Docencia</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="avatar">
+      <!-- Reemplazá "images/profile.jpg" por tu foto. Si no existe, se muestran las iniciales. -->
+      <img src="images/profile.jpg" alt="Sonia Permigiani" onerror="this.remove()">
+      <span aria-hidden="true">SP</span>
+    </div>
+    <h3>Sonia Permigiani</h3>
+    <p class="bio">Estudiante de Doctorado en Ciencias de la Computación<br>Jefa de Trabajos Prácticos, UNRC</p>
+    <button class="btn-follow" id="followBtn" aria-expanded="false" aria-controls="followList">Contacto y enlaces</button>
+    <ul class="author-links follow-list open" id="followList">
+      <li><span class="meta">📍 Río Cuarto, Córdoba, Argentina</span></li>
+      <!-- Agregá tus datos de contacto descomentando y completando estas líneas:
+      <li><a href="mailto:TU-EMAIL@dc.exa.unrc.edu.ar">Email</a></li>
+      <li><a href="https://scholar.google.com/citations?user=TU-ID">Google Scholar</a></li>
+      <li><a href="https://www.researchgate.net/profile/TU-PERFIL">ResearchGate</a></li>
+      <li><a href="https://github.com/TU-USUARIO">GitHub</a></li>
+      -->
+      <li><a href="https://www.unrc.edu.ar/" target="_blank" rel="noopener">Universidad Nacional de Río Cuarto</a></li>
+      <li><a href="https://www.famaf.unc.edu.ar/" target="_blank" rel="noopener">FaMAF – Universidad Nacional de Córdoba</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="page" id="page-inicio">
+      <h1>Sobre mí</h1>
+      <p>Jefa de Trabajos Prácticos en el Departamento de Computación de la Universidad Nacional de Río Cuarto (<a href="https://dc.exa.unrc.edu.ar/" target="_blank" rel="noopener">DC</a>). Actualmente me encuentro en la etapa final del Doctorado en Ciencias de la Computación en la Facultad de Matemática, Astronomía y Física (<a href="https://www.famaf.unc.edu.ar/" target="_blank" rel="noopener">FaMAF</a>) de la Universidad Nacional de Córdoba bajo la dirección del <a href="https://nmaguirre.github.io/" target="_blank" rel="noopener">Dr. Nazareno Aguirre</a>.</p>
+      <p></p>
+
+      <h2>Investigación</h2>
+      <p>Mi investigación se centra en el desarrollo de técnicas de <strong>análisis automático de software aplicadas en contextos educativos</strong>. Me enfoco en la asistencia al proceso de modelado (o especificación) formal: el desarrollo de herramientas automáticas que brinden <em>feedback</em> útil durante la formalización de especificaciones en entornos de aprendizaje.</p>
+
+      <h2>Temas de interés</h2>
+      <ul>
+        <li>Ingeniería de Software</li>
+        <li>Métodos formales y especificación formal</li>
+        <li>Análisis automático de software, <em>model finding</em> (Alloy, DynAlloy) y su aplicación en la educación.</li>
+      </ul>
+
+      <p class="logos">
+        <a href="https://www.unrc.edu.ar/" target="_blank" rel="noopener">Universidad Nacional de Río Cuarto</a>
+        <a href="https://www.famaf.unc.edu.ar/" target="_blank" rel="noopener">FaMAF · Universidad Nacional de Córdoba</a>
+      </p>
+    </section>
+
+    <!-- ============ PUBLICACIONES ============ -->
+    <section class="page" id="page-publicaciones">
+      <h1>Publicaciones</h1>
+
+      <!--<div class="year">2024</div> -->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso internacional</span>An Analysis of the Impact of Field-Value Instance Navigation in Alloy’s Model Finding</span>
+        <span class="authors">Cesar Cornejo, María Marta Novaira, Sonia Permigiani, Nazareno Aguirre, Marcelo Frias, Simón Emmanuel Gutiérrez Brida, Germán Regis</span>
+        <span class="venue">ABZ – 10th International Conference on Rigorous State-Based Methods</span>
+        <span class="extra">ISBN 978-3-031-63790-2. (2024) </span>
+      </div>
+
+      <!--<div class="year">2020</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Libro editado</span>Actas II Jornadas Argentinas de Didáctica de la Programación</span>
+        <span class="authors">Araceli Acosta, Belén Bonello, Cecilia Martínez, Sonia Permigiani, Nicolás Wolovick (editores)</span>
+        <span class="extra">ISBN 978-950-33-1600-9. (2020). <a href="http://ffyh.unc.edu.ar/secyt/wp-content/uploads/sites/22/2021/04/JADIPRO_ebook.pdf" target="_blank" rel="noopener">PDF</a></span>
+        <!--  -->
+      </div>
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>Herramientas de model finding para asistir en la construcción de especificaciones formales</span>
+        <span class="authors">Sonia Permigiani, María Marta Novaira, Gastón Scilingo, Marcelo Arroyo</span>
+        <span class="venue">XXVI Congreso Argentino de Ciencias de la Computación (CACIC), virtual. (2020)</span>
+      </div>
+
+      <!--<div class="year">2019</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>ProgEnv: un entorno para la enseñanza de la programación</span>
+        <span class="authors">Marcelo Arroyo, Francisco Bavera, Valeria Bengolea, Ernesto Cerda, Cecilia Kilmurray, María Marta Novaira, Sonia Permigiani, Pablo Ponzio, Gastón Scilingo, María Laura Tardivo, Marcelo Uva</span>
+        <span class="venue">XXV Congreso Argentino de Ciencias de la Computación (CACIC), Río Cuarto, Córdoba. (2019)</span>
+      </div>
+
+     <!-- <div class="year">2017</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>Utilización de Técnicas de Análisis Automático para la Asistencia en Entornos de Introducción a la Programación</span>
+        <span class="authors">Maximiliano Chaves, María Marta Novaira, Sonia Permigiani, Nazareno Matías Aguirre</span>
+        <span class="venue">XXIII Congreso Argentino de Ciencias de la Computación (CACIC), UNLP</span>
+        <span class="extra">ISBN 978-950-34-1539-9. (2017)</span>
+      </div>
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>SocialSchool: Una plataforma web para instituciones educativas</span>
+        <span class="authors">Franco Brusatti, Sonia Permigiani, María Marta Novaira, Rodrigo Ariño, Eduardo Depetris, Saúl Coria</span>
+        <span class="venue">XXIII Congreso Argentino de Ciencias de la Computación (CACIC), UNLP</span>
+        <span class="extra">ISBN 978-950-34-1539-9. (2017)</span>
+      </div>
+
+     <!-- <div class="year">2016</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>Experiencia de enseñanza de la programación en un contexto de vulnerabilidad social</span>
+        <span class="authors">Francisco Bavera, Sonia Permigiani, Gastón Scilingo, María Marta Novaira, Cecilia Kilmurray, Marcelo Arroyo, Cesar Cornejo, Violeta Castresana, Carmiña Verde</span>
+        <span class="venue">XXII Congreso Argentino de Ciencias de la Computación (CACIC). (2016)</span>
+      </div>
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>Proyecto Integrador Ciudad de los Niños, Universidad y Computación</span>
+        <span class="authors">Francisco Bavera, Sonia Permigiani, María Marta Novaira, Cecilia Kilmurray, Gastón Scilingo, Marcelo Arroyo, Carmiña Verde</span>
+        <span class="venue">XI Congreso de Tecnología en Educación y Educación en Tecnología (TE&amp;ET). (2016)</span>
+      </div>
+
+      <!--<div class="year">2015</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>Analizando el uso de (Dyn)Alloy como Herramienta Educativa</span>
+        <span class="authors">César Cornejo, Mariano Politano, Fernando Raverta, Sonia Permigiani, Pablo Ponzio, Germán Regis, Nazareno Aguirre</span>
+        <span class="venue">XXI Congreso Argentino de Ciencias de la Computación (CACIC). (2015)</span>
+      </div>
+
+     <!-- <div class="year">2009</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Revista indexada</span>An Introductory Course on Programming based on Formal Specification and Program Calculation</span>
+        <span class="authors">Javier Blanco, Leticia Losano, Nazareno Aguirre, María Marta Novaira, Sonia Permigiani, Gastón Scilingo</span>
+        <span class="venue">Inroads – SIGCSE Bulletin (ACM Press)</span>
+        <span class="extra">ISSN 0097-8418. (2009)</span>
+      </div>
+
+      <!--<div class="year">2008</div> -->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso internacional</span>An Introductory Course on Programming based on Formal Specification and Program Calculation</span>
+        <span class="authors">Nazareno Aguirre, Javier Blanco, María Marta Novaira, Sonia Permigiani, Gastón Scilingo</span>
+        <span class="venue">1st International Workshop on Formal Methods in Education and Training (FMET 2008), Kitakyushu, Japón</span>
+        <span class="extra">Technical Report GRACE-TR-008-03, Center for Global Research in Advanced Software Science and Engineering (GRACE). (2008)</span>
+      </div>
+
+      <!--<div class="year">2005</div>-->
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso latinoamericano</span>Validating Dynamic Software Architectures using Alloy</span>
+        <span class="authors">Nazareno Aguirre, María Marta Novaira, Sonia Permigiani</span>
+        <span class="venue">XXXI Conferencia Latinoamericana de Informática (CLEI 2005)</span>
+        <span class="extra">ISBN 670-426-2. (2005)</span>
+      </div>
+      <div class="pub">
+        <span class="title"><span class="tag">Congreso nacional</span>Hacia la Composición Paralela de Programas en DynAlloy</span>
+        <span class="authors">Nazareno Aguirre, María Marta Novaira, Sonia Permigiani</span>
+        <span class="venue">XI Congreso Argentino de Ciencias de la Computación (CACIC). (2005)</span>
+      </div>
+
+      <h2>Capítulo de libro</h2>
+      <div class="pub">
+        <span class="title">Ciencias de la computación – Representación de la información</span>
+        <span class="authors">Sonia Permigiani, María Marta Novaira, Valeria Bengolea, Ernesto Cerda, Gastón Scilingo, Norma Tosco, Ofelia Gigena</span>
+        <span class="venue">En: <em>Construyendo Puentes de Conocimiento</em></span>
+        <span class="extra">ISBN 978-987-688-293-4 · <a href="http://www.unirioeditora.com.ar/wp-content/uploads/2018/10/978-987-688-293-4.pdf" target="_blank" rel="noopener">PDF</a></span>
+      </div>
+    </section>
+
+    <!-- ============ DOCENCIA Y GESTIÓN ============ --> 
+    <section class="page" id="page-docencia">
+      <h1>Docencia</h1>
+      <ul>
+        <li><strong>Jefa de Trabajos Prácticos</strong> en el Departamento de Computación, UNRC, en los siguientes cursos: </li>
+        <ul>
+          <li>Algoritmos</li>
+          <li>Estructuras de datos</li>
+          <li>Análisis y Diseño de algoritmos</li>
+        </ul>
+       <!-- <li>Cuerpo docente del <strong>Postítulo de Especialización Docente de Nivel Superior en Didáctica de las Ciencias de la Computación</strong>, registrado en la Red Provincial de Formación Docente Continua.</li>-->
+      </ul>
+
+      <!-- <h2>Extensión universitaria</h2>
+      <ul>
+        <li>Responsable del proyecto de extensión <strong>P.I.C.U.CO</strong> (Proyecto Integrador Ciudad de los Niños, Universidad y Computación) en varias convocatorias de la Secretaría de Políticas Universitarias.</li>
+      </ul>
+
+      <h2>Proyectos de investigación</h2>
+      <ul>
+        <li>Proyecto europeo <strong>MISSION</strong> (Horizonte 2020 – Marie Skłodowska-Curie), con estancia de investigación en la Universidad de Twente, Países Bajos (2024).</li>
+        <li>Proyectos nacionales de métodos formales, verificación de sistemas críticos y análisis automático de software, financiados por la UNRC, FONCyT y otros organismos.</li>
+      </ul>
+
+      <h2>Servicio a la comunidad científica</h2>
+      <ul>
+        <li>Revisora y miembro de comités de programa de eventos científicos nacionales, entre ellos <strong>JADiCC</strong> (Jornadas Argentinas de Didáctica de la Programación) y <strong>JAIIO</strong> (Jornadas Argentinas de Informática).</li>
+        <li>Coordinadora ejecutiva del <strong>Taller Argentino de Fundamentos para el Análisis y Construcción Automática de Software</strong>.</li>
+        <li>Miembro del comité de organización de JADiCC, la Escuela de Verano de Ciencias Informáticas (RIO) y CACIC.</li>
+        <li>Co-editora de las Actas de las II Jornadas Argentinas de Didáctica de la Programación (2020).</li>
+      </ul>
+
+      <h2>Gestión académica</h2>
+      <ul>
+        <li>Consejera Departamental, Departamento de Computación, UNRC.</li>
+        <li>Miembro de la comisión curricular permanente de la Licenciatura en Ciencias de la Computación.</li>
+      </ul>
+      -->
+    </section> 
+  </main>
+</div>
+
+<footer>
+  © <span id="yr">2026</span> Sonia Permigiani · Departamento de Computación, Universidad Nacional de Río Cuarto
+</footer>
+
+<script>
+  (function(){
+    var pages = ['inicio','publicaciones','docencia'];
+    var links = document.querySelectorAll('#nav a');
+    function show(){
+      var h = (location.hash || '#inicio').slice(1);
+      if (pages.indexOf(h) === -1) h = 'inicio';
+      pages.forEach(function(p){
+        document.getElementById('page-' + p).classList.toggle('active', p === h);
+      });
+      links.forEach(function(a){ a.classList.toggle('active', a.dataset.page === h); });
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', show);
+    show();
+
+    var btn = document.getElementById('followBtn');
+    var list = document.getElementById('followList');
+    btn.addEventListener('click', function(){
+      var open = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
